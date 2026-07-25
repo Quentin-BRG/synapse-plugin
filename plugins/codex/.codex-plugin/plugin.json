@@ -1,0 +1,36 @@
+{
+  "name": "synapse",
+  "version": "0.2.0",
+  "description": "Learn with your agent while Synapse stores durable, private progress.",
+  "author": {
+    "name": "Synapse",
+    "url": "https://github.com/Quentin-BRG/synapse-plugins"
+  },
+  "homepage": "https://synapse.quentin-berger.fr",
+  "repository": "https://github.com/Quentin-BRG/synapse-plugins",
+  "license": "Apache-2.0",
+  "keywords": [
+    "learning",
+    "education",
+    "mcp"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Synapse",
+    "shortDescription": "Durable learning progress with your agent",
+    "longDescription": "Use one remote Synapse MCP resource and shared workflows to organize, study, and review private learning progress.",
+    "developerName": "Synapse",
+    "category": "Education",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://synapse.quentin-berger.fr",
+    "defaultPrompt": [
+      "Use Synapse onboarding to create my first learning Collection.",
+      "Import this material into my Synapse Collection.",
+      "Help me study this Synapse Collection."
+    ]
+  }
+}

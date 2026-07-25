@@ -1,0 +1,19 @@
+{
+  "name": "synapse",
+  "version": "0.2.0",
+  "description": "Learn with your agent while Synapse stores durable, private progress.",
+  "author": {
+    "name": "Synapse",
+    "url": "https://github.com/Quentin-BRG/synapse-plugins"
+  },
+  "homepage": "https://synapse.quentin-berger.fr",
+  "repository": "https://github.com/Quentin-BRG/synapse-plugins",
+  "license": "Apache-2.0",
+  "keywords": [
+    "learning",
+    "education",
+    "mcp"
+  ],
+  "skills": "./skills",
+  "mcpServers": "./.mcp.json"
+}

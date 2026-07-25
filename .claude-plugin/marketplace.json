@@ -1,0 +1,14 @@
+{
+  "name": "synapse-plugins",
+  "owner": {
+    "name": "Synapse"
+  },
+  "description": "Synapse learning workflows backed by the remote OAuth-protected MCP service.",
+  "plugins": [
+    {
+      "name": "synapse",
+      "source": "./plugins/claude",
+      "description": "Learn with your agent while Synapse stores durable, private progress."
+    }
+  ]
+}

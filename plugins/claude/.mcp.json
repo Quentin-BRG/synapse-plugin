@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "synapse": {
+      "type": "http",
+      "url": "https://synapse.quentin-berger.fr/mcp",
+      "oauth": {
+        "scopes": "openid profile offline_access synapse:read synapse:content:write synapse:learning:write"
+      }
+    }
+  }
+}
