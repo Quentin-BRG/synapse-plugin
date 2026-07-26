@@ -1,13 +1,13 @@
 interface:
   display_name: "Study with Synapse"
   short_description: "Study a Collection and record evidence-backed progress"
-  default_prompt: "Help me study this Synapse Collection."
+  default_prompt: "Use $study to study a Collection and record evidence-backed progress."
 policy:
   allow_implicit_invocation: true
 dependencies:
   tools:
-    - type: mcp
-      value: synapse
+    - type: "mcp"
+      value: "synapse"
       description: "Synapse remote learning service"
-      transport: streamable_http
+      transport: "streamable_http"
       url: "https://synapse.quentin-berger.fr/mcp"

@@ -1,6 +1,6 @@
 {
   "name": "synapse",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Learn with your agent while Synapse stores durable, private progress.",
   "author": {
     "name": "Synapse",
@@ -28,7 +28,7 @@
     ],
     "websiteURL": "https://synapse.quentin-berger.fr",
     "defaultPrompt": [
-      "Use Synapse onboarding to create my first learning Collection.",
+      "Use Synapse onboarding to create my first learning Collection from text or a supported file.",
       "Import this material into my Synapse Collection.",
       "Help me study this Synapse Collection."
     ]

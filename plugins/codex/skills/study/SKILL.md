@@ -10,7 +10,8 @@ Read [the learning model](../../references/learning-model.md) and
 English matching the user.
 
 1. Resolve the requested Collection or units and call `get_learning_context`
-   before teaching.
+   with source references before teaching. Use `get_document` and an authorized
+   download only when the relevant source is needed.
 2. Adapt explanation and practice to target depth, existing evidence,
    retrievability, due/stale status, and the current semantic revision. Keep all
    learning interaction in this agent conversation.
@@ -26,5 +27,8 @@ English matching the user.
 6. Re-read the context and summarize what was observed and stored. Distinguish
    depth, retrievability, due status, and staleness.
 
-Do not create a course or exercise Document in Milestone 2. Offer text directly
-in the conversation and state the storage limitation when relevant.
+Create a generated course, summary, raw-data artifact, or exercise Document
+only when the user asks to preserve it and approves the proposed artifact.
+Use `GENERATED` with the appropriate stable system tag, never `ORIGINAL`, and
+link it through source references without treating storage as learning
+evidence.

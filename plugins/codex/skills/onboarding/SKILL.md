@@ -1,6 +1,6 @@
 ---
 name: onboarding
-description: Explicitly configure Synapse and create the user's first text-based learning Collection after one structure approval.
+description: Explicitly configure Synapse and create the user's first learning Collection from text or a supported local file after one structure approval.
 ---
 
 # Synapse onboarding
@@ -66,17 +66,20 @@ Use this workflow only when the user explicitly invokes onboarding. Read
 3. Ask no more than these three initial questions: what the user wants to
    learn, for what purpose, and whether sources already exist. Do not ask for a
    learning style.
-4. Inspect supplied text or locally available sources when possible. Apply the
-   Milestone 2 file boundary from the shared MCP contract.
+4. Inspect supplied text or locally available supported sources when possible.
+   Plan approved source preservation using the shared text or direct-file
+   Document flow; do not claim storage before completion.
 5. Propose one concise initial structure: Collection title and description,
-   optional child Collections, independently assessable free-text
-   KnowledgeUnits, each depth ceiling, and private target depths. Mention any
-   source file that cannot yet be stored.
+   optional child Collections, source Documents and provenance, independently
+   assessable free-text KnowledgeUnits, source references, each depth ceiling,
+   and private target depths. Mention any source that cannot be stored.
 6. Ask once for approval of the whole structure. Revise the preview if the user
    declines; do not write before approval.
-7. After approval, call `create_collection`, then
-   `create_knowledge_units` in bounded idempotent batches, then
-   `set_learning_targets`. Targets never set assessed depth or retrievability.
+7. After approval, call `create_collection`; store approved sources with
+   `create_text_document` or the direct upload helper flow; then call
+   `create_knowledge_units` with same-Collection source references in bounded
+   idempotent batches, then `set_learning_targets`. Documents, references, and
+   targets never set assessed depth or retrievability.
 8. Re-read the created context, summarize exactly what was stored, identify any
    source that was not stored, and offer `study` or `review`.
 

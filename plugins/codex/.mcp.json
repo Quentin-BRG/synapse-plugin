@@ -10,6 +10,7 @@
         "offline_access",
         "synapse:read",
         "synapse:content:write",
+        "synapse:files:write",
         "synapse:learning:write"
       ]
     }

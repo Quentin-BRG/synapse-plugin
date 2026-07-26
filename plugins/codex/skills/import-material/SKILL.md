@@ -11,19 +11,24 @@ French or English according to the user.
 
 1. Resolve the target with `list_collections`/`get_collection`, or propose a
    new Collection.
-2. Inspect the supplied material locally. For a file, apply the explicit
-   Milestone 2 text-only boundary: disclose that the original cannot yet be
-   stored and never imply `ORIGINAL` provenance was persisted.
+2. Inspect the supplied material locally. For a supported file, collect its
+   exact byte size and MIME type and plan to preserve it as an `ORIGINAL`
+   Document through the shared direct-file flow. For pasted text that should
+   be preserved, plan an `ORIGINAL` text Document.
 3. Segment only independently assessable free-text KnowledgeUnits. Assign each
    a justified depth ceiling and propose private targets from the user's
    purpose.
-4. Present one concise bulk preview covering Collection changes, units,
-   ceilings, targets, and anything not stored. Ask for one approval.
-5. After approval, use `create_collection` when needed,
-   `create_knowledge_units` in bounded idempotent batches, and
-   `set_learning_targets`.
-6. Re-read and summarize the stored result. Creating units or targets never
-   sets assessed depth, retrievability, or evidence.
+4. Present one concise bulk preview covering Collection changes, Documents,
+   tags, units, source links, ceilings, targets, and anything that cannot be
+   stored. Ask for one approval.
+5. After approval, use `create_collection` when needed. Store approved source
+   material with `create_text_document` or the direct upload helper flow, and
+   confirm `AVAILABLE` before claiming preservation.
+6. Use `create_knowledge_units` in bounded idempotent batches with source
+   references to same-Collection Documents, then `set_learning_targets`.
+7. Re-read and summarize the stored result. Creating Documents, units, source
+   references, or targets never sets assessed depth, retrievability, or
+   evidence.
 
-Source references, preserved original files, and generated Documents remain
-unavailable until Milestone 3. Fail clearly instead of inventing those writes.
+If file access, helper execution, MIME validation, or upload completion fails,
+state exactly what was not stored. Never fabricate `ORIGINAL` provenance.
