@@ -8,7 +8,7 @@ already use: the agent conducts learning conversations and assessments, while
 Synapse preserves structured Collections, independently assessable Knowledge,
 and your private learning history.
 
-This repository distributes version `0.4.1` of the `synapse`
+This repository distributes version `0.5.0` of the `synapse`
 plugin for Codex and Claude Code. Both packages connect to
 `https://synapse.quentin-berger.fr/mcp` through OAuth. No API key or plugin secret is required.
 
