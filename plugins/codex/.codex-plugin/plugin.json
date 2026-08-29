@@ -1,6 +1,6 @@
 {
   "name": "synapse",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Make what you learn last with the AI agent you already use.",
   "author": {
     "name": "Synapse",
@@ -31,6 +31,9 @@
       "Guide me through Synapse onboarding with the prepared thunderstorm Collection.",
       "Create a new Synapse Collection for what I want to learn.",
       "Update this Synapse Collection with my changes or new material."
-    ]
+    ],
+    "brandColor": "#208AEF",
+    "composerIcon": "./assets/logo.png",
+    "logo": "./assets/logo.png"
   }
 }
