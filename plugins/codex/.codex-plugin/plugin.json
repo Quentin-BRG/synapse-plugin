@@ -1,13 +1,13 @@
 {
   "name": "synapse",
-  "version": "0.3.0",
-  "description": "Learn with your agent while Synapse stores durable, private progress.",
+  "version": "0.4.0",
+  "description": "Make what you learn last with the AI agent you already use.",
   "author": {
     "name": "Synapse",
-    "url": "https://github.com/Quentin-BRG/synapse-plugins"
+    "url": "https://github.com/Quentin-BRG/synapse-plugin"
   },
   "homepage": "https://synapse.quentin-berger.fr",
-  "repository": "https://github.com/Quentin-BRG/synapse-plugins",
+  "repository": "https://github.com/Quentin-BRG/synapse-plugin",
   "license": "Apache-2.0",
   "keywords": [
     "learning",
@@ -18,8 +18,8 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Synapse",
-    "shortDescription": "Durable learning progress with your agent",
-    "longDescription": "Use one remote Synapse MCP resource and shared workflows to organize, study, and review private learning progress.",
+    "shortDescription": "Make what you learn last",
+    "longDescription": "Organize knowledge, preserve private learning progress, and review what matters through the AI agent you already use.",
     "developerName": "Synapse",
     "category": "Education",
     "capabilities": [
@@ -28,9 +28,9 @@
     ],
     "websiteURL": "https://synapse.quentin-berger.fr",
     "defaultPrompt": [
-      "Use Synapse onboarding to create my first learning Collection from text or a supported file.",
-      "Import this material into my Synapse Collection.",
-      "Help me study this Synapse Collection."
+      "Guide me through Synapse onboarding with the prepared thunderstorm Collection.",
+      "Create a new Synapse Collection for what I want to learn.",
+      "Update this Synapse Collection with my changes or new material."
     ]
   }
 }

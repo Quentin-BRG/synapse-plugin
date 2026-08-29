@@ -9,6 +9,7 @@
         "profile",
         "offline_access",
         "synapse:read",
+        "synapse:organization:write",
         "synapse:content:write",
         "synapse:files:write",
         "synapse:learning:write"

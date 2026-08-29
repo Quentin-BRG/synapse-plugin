@@ -1,7 +1,7 @@
 interface:
-  display_name: "Review with Synapse"
-  short_description: "Revise Synapse knowledge using your preferred method"
-  default_prompt: "Use $review to revise Synapse knowledge using your preferred method."
+  display_name: "Create a Collection"
+  short_description: "Start a structured learning journey in Synapse"
+  default_prompt: "Use $create-collection to start a structured learning journey in Synapse."
 policy:
   allow_implicit_invocation: true
 dependencies:

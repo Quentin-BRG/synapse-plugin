@@ -1,13 +1,13 @@
 {
   "name": "synapse",
-  "version": "0.3.0",
-  "description": "Learn with your agent while Synapse stores durable, private progress.",
+  "version": "0.4.0",
+  "description": "Make what you learn last with the AI agent you already use.",
   "author": {
     "name": "Synapse",
-    "url": "https://github.com/Quentin-BRG/synapse-plugins"
+    "url": "https://github.com/Quentin-BRG/synapse-plugin"
   },
   "homepage": "https://synapse.quentin-berger.fr",
-  "repository": "https://github.com/Quentin-BRG/synapse-plugins",
+  "repository": "https://github.com/Quentin-BRG/synapse-plugin",
   "license": "Apache-2.0",
   "keywords": [
     "learning",

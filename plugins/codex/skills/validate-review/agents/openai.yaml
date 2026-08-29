@@ -1,7 +1,7 @@
 interface:
-  display_name: "Review with Synapse"
-  short_description: "Revise Synapse knowledge using your preferred method"
-  default_prompt: "Use $review to revise Synapse knowledge using your preferred method."
+  display_name: "Validate a review"
+  short_description: "Assess observable work and update private progress"
+  default_prompt: "Use $validate-review to assess observable work and update private progress."
 policy:
   allow_implicit_invocation: true
 dependencies:

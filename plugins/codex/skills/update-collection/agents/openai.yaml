@@ -1,7 +1,7 @@
 interface:
-  display_name: "Review with Synapse"
-  short_description: "Revise Synapse knowledge using your preferred method"
-  default_prompt: "Use $review to revise Synapse knowledge using your preferred method."
+  display_name: "Update a Collection"
+  short_description: "Change or extend existing Synapse learning content"
+  default_prompt: "Use $update-collection to change or extend existing Synapse learning content."
 policy:
   allow_implicit_invocation: true
 dependencies:
