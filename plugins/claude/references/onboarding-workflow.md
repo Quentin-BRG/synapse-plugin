@@ -17,6 +17,12 @@ abstract filler and internal implementation detail. Use the user's language
 and the natural user-facing terminology defined in
 [the learning model](./learning-model.md).
 
+After the introduction, open each message with a light bridge from the previous
+checkpoint before naming or defining the next concept. The bridge should make
+the sequence feel narrated, not add another explanation. Natural shapes include
+“Nous avons maintenant donné un cadre à cet apprentissage…” or “Maintenant que
+les supports sont réunis…”. Adapt them instead of repeating a script.
+
 ## Pedagogical checkpoint contract
 
 The written explanation is the checkpoint's main deliverable. Creating an
@@ -36,6 +42,11 @@ Before ending a checkpoint, silently verify that the response has:
 One concept per turn means one complete explanation of that concept. It does
 not mean one or two vague sentences. Prefer a few short paragraphs that read
 naturally over a dense block, a bare object inventory, or a tool-status report.
+
+Operational boundaries are silent invariants. Do not turn provenance,
+fetching, storage, assessment, or authorization rules into unsolicited
+disclaimers. Explain what Synapse enables in positive terms and mention a
+limitation only when the user asks or an actual failure makes it necessary.
 
 ## Prepared learning content
 
@@ -102,8 +113,12 @@ Include short source links to
 `https://www.weather.gov/safety/lightning-science-thunder` in the Document.
 Attach structured external provenance for the first URL with provider **NOAA
 National Severe Storms Laboratory** and canonical title **Severe Weather 101:
-Lightning Basics**. It is metadata only and Synapse must not claim to fetch or
-preserve the remote page.
+Lightning Basics**. Internally, this records the Document's origin; do not
+describe the provenance implementation or remote-fetch boundary during the
+tutorial, and do not claim that the remote page itself was copied.
+
+`GENERATED` is an internal content kind. Never expose that label to the user;
+describe the result naturally as a support prepared by the agent.
 
 Create these four independently assessable items, translated naturally:
 
@@ -137,6 +152,10 @@ prepared tutorial mutations, so do not request it again for every object.
 
 ### 2. Create and explain the Collection
 
+Begin with a short bridge that presents the Collection as the first way to give
+continuity and a boundary to the learning journey. Do not begin with “A
+Collection is…” or with the mutation result.
+
 Before ending this checkpoint, make all four of these points explicit to the
 user:
 
@@ -161,17 +180,23 @@ response before introducing the Document.
 
 ### 3. Create and explain the Document
 
-Before ending this checkpoint, make all four of these points explicit to the
-user:
+Begin by connecting the Collection's learning boundary to the material needed
+to learn inside it. Before ending this checkpoint, make all four of these
+points explicit to the user:
 
-- a **Document** is a support kept in a Collection and used as a starting point
-  for learning;
-- here it is the short prepared support about lightning and thunder;
-- later, the agent may generate a Document from scratch or build one from a
-  course, notes, a PDF, an article, a YouTube video, or another source supplied
-  by the user; and
-- creating or reading a Document does not prove that its content has been
-  learned.
+- **Documents** centralize the sources and supports used for one learning
+  journey inside its Collection;
+- they can preserve a learning source supplied by the user, such as a
+  university course, notes, a PDF, an article, or a video link, together with
+  useful origin information;
+- they can also hold a new support the agent prepares from scratch or from
+  sources the user provides, without exposing internal content-kind labels; and
+- here, **L’éclair et le tonnerre** is the short support prepared for the
+  thunderstorm journey.
+
+The no-fabricated-progress rule still applies internally, but do not append a
+warning that reading a Document is not proof of learning. This checkpoint is
+about the value of centralizing sources and learning supports.
 
 Create the prepared Document with the run-scoped idempotency strategy below.
 Say that the user may inspect it in the mobile application without making that
@@ -179,6 +204,9 @@ inspection a gate. End simply, for example: “C’est clair ? On passe à la
 suite ?” Wait and handle the response before introducing Knowledge.
 
 ### 4. Create and explain the Knowledge
+
+Begin by connecting the centralized support to the distinct things Synapse will
+help the user learn from it.
 
 Before ending this checkpoint, make all four of these points explicit to the
 user:
@@ -200,16 +228,20 @@ corresponding heading in the prepared Document. Do not use `KnowledgeUnit` in
 the explanation. The mobile structure may be mentioned but never inspected as
 a prerequisite.
 
-End with the prepared short integration question: “Parmi ces quatre
-Connaissances, laquelle vous semble demander une mise en pratique plutôt qu’une
-simple explication ?” Wait, respond to the answer, and only then introduce
-depth.
+End with a simple transition such as “C’est clair ? On continue ?”. Do not ask
+the user to classify the prepared Knowledge or guess which one needs practice.
+Wait before introducing depth.
 
 ### 5. Explain the five depth levels
 
-Before setting targets or starting the review, state that Synapse evaluates
-every Knowledge separately on five depth levels. Give both the natural name and
-the general one-sentence meaning of each level:
+Begin by explaining why depth follows naturally from Knowledge: once Synapse
+has separated what the user is learning, it needs to describe how far the user
+can go with each item.
+
+State immediately that every Knowledge has its own **maximum depth**, determined
+by its actual scope. Synapse uses the same five-level scale for every Knowledge,
+but a focused Knowledge may meaningfully stop before level 5. Then give both the
+natural name and the general one-sentence meaning of each level:
 
 1. **Recognize** — identify the Knowledge when it is presented;
 2. **Retrieve** — produce it without substantive help;
@@ -230,36 +262,60 @@ Translate the names naturally. In French use **Reconnaître**, **Retrouver**,
 4. **Appliquer** — utiliser la règle avec un délai représentatif, par exemple
    neuf secondes.
 
-Say explicitly that this Knowledge stops at level 4: forcing a level-5 task
-would exceed its scope. Other Knowledge can genuinely support level 5 when
-their own scope includes novel transfer and reasoning about limits. Do not
-introduce retrievability. End simply, for example: “C’est clair ? On continue ?”
-Wait and handle the response before explaining targets and progress.
+Explain positively that level 4 is the maximum for this Knowledge because its
+scope is estimating a distance in a representative situation. Level 5 belongs
+to Knowledge whose scope genuinely includes adapting to new situations and
+reasoning about limits. Do not introduce retrievability. End simply, for
+example: “C’est clair ? On continue ?” Wait and handle the response before
+explaining targets and progress.
 
 ### 6. Explain targets and observable progress
 
-Before ending this checkpoint, make all four of these points explicit to the
-user:
+Begin by connecting the maximum-depth scale to the user's own learning goal.
+Before ending this checkpoint, distinguish these three values explicitly and
+side by side:
 
-- every Knowledge has a hard maximum depth following its actual scope;
-- its target describes what the user aims to be able to do;
-- its observed progress is based only on evidence from work the agent can
-  inspect; and
-- setting a target expresses an aim and does not claim progress.
+- the **maximum depth** is the highest meaningful level allowed by the scope of
+  the Knowledge;
+- the **target** is the level the user aims to reach, at or below that maximum;
+  and
+- the **observed progress** is where the user's demonstrated work currently
+  places them and can evolve through later reviews.
+
+Use a concise contrast such as: the maximum says how far this Knowledge can go,
+the target says where the user wants to go, and progress says where their work
+currently places them.
 
 Set the four prepared targets with the run-scoped idempotency strategy below.
+Explain that this simple tutorial deliberately sets each target at its maximum:
+**Comprendre** (3) for the three explanatory Knowledge and **Appliquer** (4)
+for estimating distance. In another Collection, a user may choose a target
+below the maximum.
 
 Explain that Synapse may evaluate evidence visible during exchanges and reviews
 with the agent, photos of paper exercises, files, productions, or any other
-work the agent can actually inspect. A self-report alone is insufficient. End
+work the agent can actually inspect. Phrase this positively; keep the rule about
+unsupported self-reports internal.
+
+Now invite the user to open the prepared Collection in the mobile application.
+Tell them what to look for: the four Knowledge, their targets, and their current
+progress. Explain that they will be able to see the progress change after the
+first review. Do not require application access to continue, but keep that
+fallback internal rather than appending a caveat to the invitation. End
 simply: “C’est clair ? On essaie une première révision ?” Wait.
 
 ### 7. Offer one frictionless review
 
-Explain that a review can use any method the user chooses. If the user accepts,
-ask: “Vous voyez un éclair, puis entendez le tonnerre neuf secondes plus tard.
-À quelle distance approximative se trouve l’éclair ? Expliquez brièvement votre
-calcul.” Translate naturally and wait for the answer.
+Begin by saying that this first review will show concretely how an answer can
+update progress in Synapse. If the mobile application is open, invite the user
+to leave the Collection on screen so they can compare it afterwards.
+
+Present this positively as a short recall-and-application check: answer from
+memory, without reopening the Document, so the user can see what they can
+retrieve and apply. Other reviews may use any method the user chooses. Then ask: “Vous
+voyez un éclair, puis entendez le tonnerre neuf secondes plus tard. À quelle
+distance approximative se trouve l’éclair ? Expliquez brièvement votre calcul.”
+Translate naturally and wait for the answer.
 
 ### 8. Validate observable evidence
 
@@ -275,8 +331,12 @@ level. Re-read the context and describe exactly what was recorded. Do not
 introduce retrievability.
 
 Explain why the observable answer supports the recorded level and how that
-differs from the target. End simply, for example: “C’est clair ? On continue ?”
-Wait and handle the response.
+differs from the target. Invite the user to refresh or reopen the Collection in
+the mobile application and point out the progress that changed. Application
+access remains optional, but do not volunteer that caveat. If the user is
+looking at the application, end with a transition such as “Vous voyez le
+changement ? On continue ?”; otherwise use a simple “C’est clair ? On
+continue ?”. Wait and handle the response.
 
 ### 9. Explain continuity and sharing
 
@@ -288,8 +348,10 @@ user:
   user demonstrated;
 - the mobile application may send a notification when a review becomes
   relevant;
-- Collections can be shared from the mobile application while each person's
-  progress and review history remain private; and
+- sharing a Collection from the mobile application also shares its learning
+  content and linked Documents, which makes it useful for sharing a course or
+  a set of learning supports, while each person's progress and review history
+  remain private; and
 - the user remains free to revise with the agent, alone, on paper, or with any
   method they prefer.
 
