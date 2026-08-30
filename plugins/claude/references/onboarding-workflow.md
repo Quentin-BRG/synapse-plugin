@@ -17,6 +17,26 @@ abstract filler and internal implementation detail. Use the user's language
 and the natural user-facing terminology defined in
 [the learning model](./learning-model.md).
 
+## Pedagogical checkpoint contract
+
+The written explanation is the checkpoint's main deliverable. Creating an
+object is only the concrete illustration of that explanation. A response that
+mostly announces a successful mutation and asks to continue has not taught the
+concept and must not be sent.
+
+Each procedure step below states what the new user must understand. Those
+points are mandatory user-facing content, not background notes for the agent.
+Before ending a checkpoint, silently verify that the response has:
+
+- defined the current product concept in plain language;
+- used the prepared thunderstorm content to make it concrete;
+- explained why that distinction matters in Synapse; and
+- covered every step-specific point marked as required.
+
+One concept per turn means one complete explanation of that concept. It does
+not mean one or two vague sentences. Prefer a few short paragraphs that read
+naturally over a dense block, a bare object inventory, or a tool-status report.
+
 ## Prepared learning content
 
 The tutorial has one subject. Do not present alternatives or describe it as a
@@ -117,12 +137,21 @@ prepared tutorial mutations, so do not request it again for every object.
 
 ### 2. Create and explain the Collection
 
-Teach that a **Collection** corresponds to one learning journey that the user
-wants to follow over time. It brings together its supports and its related
-Knowledge. Ground the explanation in the prepared Collection: it covers the
-origin of thunder, the delay between light and sound, estimating lightning
-distance, and the rolling sound of thunder. These things belong to the same
-learning journey, while Synapse can follow each one separately.
+Before ending this checkpoint, make all four of these points explicit to the
+user:
+
+- a **Collection** corresponds to one learning journey the user wants to follow
+  over time;
+- it brings together the supports used to learn and the related Knowledge;
+- here, that journey covers the origin of thunder, the delay between light and
+  sound, estimating lightning distance, and the rolling sound of thunder; and
+- those subjects belong together, while Synapse can follow progress on each of
+  them separately.
+
+Do not replace this explanation with a generic statement that the Collection
+is ready, represents the whole journey, or contains ideas. A newcomer should be
+able to explain what a Collection contains and why these four subjects form
+one after reading the response.
 
 Create the prepared Collection and description with the run-scoped
 idempotency strategy below. Say that the user may follow its creation in the
@@ -132,12 +161,17 @@ response before introducing the Document.
 
 ### 3. Create and explain the Document
 
-Teach that a **Document** is a support kept in a Collection and used as a
-starting point for learning. Here it is the short prepared support about
-lightning and thunder. Explain that later the agent may generate Documents from
-scratch or build them from sources the user supplies, such as a course, notes,
-a PDF, an article, or a YouTube video. Do not imply that creating or reading a
-Document proves learning.
+Before ending this checkpoint, make all four of these points explicit to the
+user:
+
+- a **Document** is a support kept in a Collection and used as a starting point
+  for learning;
+- here it is the short prepared support about lightning and thunder;
+- later, the agent may generate a Document from scratch or build one from a
+  course, notes, a PDF, an article, a YouTube video, or another source supplied
+  by the user; and
+- creating or reading a Document does not prove that its content has been
+  learned.
 
 Create the prepared Document with the run-scoped idempotency strategy below.
 Say that the user may inspect it in the mobile application without making that
@@ -146,13 +180,19 @@ suite ?” Wait and handle the response before introducing Knowledge.
 
 ### 4. Create and explain the Knowledge
 
-Teach that a learning journey can cover several ideas, mechanisms, or
-abilities, so Synapse divides it into **Connaissances** or the natural
-equivalent: coherent things that can be learned and assessed separately. A
-Knowledge is not merely a sentence copied from a Document. Present all four
-prepared items and explain the concrete consequence: the user might know how
-to estimate lightning distance without yet knowing why thunder rolls, so
-Synapse follows them separately inside the same Collection.
+Before ending this checkpoint, make all four of these points explicit to the
+user:
+
+- one learning journey can cover several ideas, mechanisms, or abilities;
+- Synapse divides it into **Connaissances**, or the natural equivalent:
+  coherent things that can be learned and assessed separately;
+- a Knowledge is not merely a sentence copied from a Document; and
+- the user might know how to estimate lightning distance without yet knowing
+  why thunder rolls, which is why Synapse follows them separately inside the
+  same Collection.
+
+Present all four prepared Knowledge by name as the concrete structure that
+follows from this explanation.
 
 Create the four prepared items in one batch with the run-scoped idempotency
 strategy below. Use `SECTION` source references whose locator identifies the
@@ -198,11 +238,16 @@ Wait and handle the response before explaining targets and progress.
 
 ### 6. Explain targets and observable progress
 
-Explain that every Knowledge has a hard maximum depth following its actual
-scope, a target describing what the user aims to be able to do, and observed
-progress based only on evidence from their work. Set the four prepared targets
-with the run-scoped idempotency strategy below. Targets express an aim and do
-not claim progress.
+Before ending this checkpoint, make all four of these points explicit to the
+user:
+
+- every Knowledge has a hard maximum depth following its actual scope;
+- its target describes what the user aims to be able to do;
+- its observed progress is based only on evidence from work the agent can
+  inspect; and
+- setting a target expresses an aim and does not claim progress.
+
+Set the four prepared targets with the run-scoped idempotency strategy below.
 
 Explain that Synapse may evaluate evidence visible during exchanges and reviews
 with the agent, photos of paper exercises, files, productions, or any other
@@ -235,13 +280,18 @@ Wait and handle the response.
 
 ### 9. Explain continuity and sharing
 
-Explain progressively that Synapse uses the private schedule to place Knowledge
-in **À revoir** in the mobile application when a review becomes due. Time does
-not erase what they demonstrated. Explain that the mobile application may send
-a notification when a review becomes relevant. Then explain that Collections
-can be shared from the mobile application while each person's progress and
-review history remain private. The user remains free to revise with the agent,
-alone, on paper, or with any method they prefer.
+Before ending this checkpoint, make all four of these points explicit to the
+user:
+
+- Synapse uses the private schedule to place Knowledge in **À revoir** in the
+  mobile application when a review becomes due, without time erasing what the
+  user demonstrated;
+- the mobile application may send a notification when a review becomes
+  relevant;
+- Collections can be shared from the mobile application while each person's
+  progress and review history remain private; and
+- the user remains free to revise with the agent, alone, on paper, or with any
+  method they prefer.
 
 Do not require a mobile check. End simply, for example: “C’est OK ? On termine
 la prise en main ?” Wait and handle the response.

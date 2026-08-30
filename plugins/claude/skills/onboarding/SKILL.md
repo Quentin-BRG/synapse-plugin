@@ -7,10 +7,12 @@ disable-model-invocation: true
 # Synapse onboarding
 
 Use this skill only when onboarding is explicitly invoked. Before acting, read
-[the guided onboarding workflow](../../references/onboarding-workflow.md),
-[the approved message](../../references/onboarding-message.md),
-[the learning model](../../references/learning-model.md), and
-[the content workflows](../../references/content-workflows.md).
+[the guided onboarding workflow](../../references/onboarding-workflow.md) and
+[the approved message](../../references/onboarding-message.md). Read
+[the learning model](../../references/learning-model.md) when the workflow
+reaches depth, targets, or assessment. The onboarding workflow already contains
+the mutation and recovery rules needed for this tutorial; do not let general
+content-management instructions displace its teaching objective.
 
 Follow the guided workflow in order. Its single prepared subject is
 **Comprendre ce qui se passe pendant un orage**; do not offer a subject choice.
@@ -19,14 +21,26 @@ and use the user's language.
 
 The outcome is the new user's understanding of Synapse, not the creation of a
 functional Collection. The prepared Collection and its contents are teaching
-props for that first experience. Object existence alone never completes a
-checkpoint.
+props for that first experience. The explanation is the primary output of each
+turn; a tool mutation only makes the explanation tangible. Object existence, a
+successful tool result, or a status sentence never completes a checkpoint.
 
-Teach one meaningful product concept per turn. Explain what it means in
-Synapse, ground it in the thunderstorm journey, connect it to the next concept,
-then perform the approved mutation when relevant. Keep each explanation
-substantial enough for a newcomer to understand but free of abstract marketing
-padding or internal implementation detail.
+Teach one meaningful product concept per turn. This limits the breadth of a
+turn, not the completeness of its explanation. For every checkpoint:
+
+1. define the concept plainly in Synapse;
+2. ground it in the prepared thunderstorm journey;
+3. state the concrete difference it makes to how the user's learning is
+   organized, followed, or assessed;
+4. perform and report the approved mutation when relevant; and
+5. end with the checkpoint's short transition.
+
+Treat every “must understand” or “make clear” list in the guided workflow as a
+user-facing coverage checklist. Before sending the turn, verify that each item
+has actually been communicated. Knowing it internally, implying it with vague
+words such as “journey” or “ideas”, or mentioning only that an object is ready
+does not count. Keep explanations compact and concrete, without abstract
+marketing padding or internal implementation detail.
 
 End every pedagogical checkpoint with a short, natural transition in the
 user's language, such as “C’est clair ?”, “On continue ?”, or “On passe à la
