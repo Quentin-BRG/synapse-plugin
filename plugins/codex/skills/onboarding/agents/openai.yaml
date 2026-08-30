@@ -1,7 +1,7 @@
 interface:
   display_name: "Synapse onboarding"
-  short_description: "Discover Synapse with a guided first Collection"
-  default_prompt: "Use $onboarding to discover Synapse with a guided first Collection."
+  short_description: "Discover Synapse step by step"
+  default_prompt: "Use $onboarding to discover Synapse step by step."
 policy:
   allow_implicit_invocation: false
 dependencies:
